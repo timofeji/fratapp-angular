@@ -25,12 +25,6 @@ export const loggedInLinks = (
                 Polls
             </Link>
         </li>
-
-        <li>
-            <Link to="/rankings" className="nav-link">
-                Rankings
-            </Link>
-        </li>
     </ul>
 )
 

@@ -11,25 +11,21 @@ const mapDispatchToProps = dispatch => ({
         dispatch({ type: UPDATE_FIELD_AUTH, key: 'email', value }),
     onChangePassword: value =>
         dispatch({ type: UPDATE_FIELD_AUTH, key: 'password', value }),
-    onSubmit: (token) =>
-        dispatch({ type: LOGIN, payload: token}),
+    onSubmit: (email, password) =>
+        dispatch({ type: LOGIN, payload: authService.login(email, password)}),
 
 });
 
 
 class LoginContainer extends React.Component {
-    constructor() {
-        super();
-        this.changeEmail = (event) => this.props.onChangeEmail(event.target.value);
-        this.changePassword = (event) => this.props.onChangePassword(event.target.value);
-        this.submitForm = (email, password) => ev => {
-            ev.preventDefault();
-            authService.login(email, password).then((token) => {
-                console.log(token);
-                this.props.onSubmit(token);
-            });
-        };
-    }
+
+    changeEmail = (event) => this.props.onChangeEmail(event.target.value);
+    changePassword = (event) => this.props.onChangePassword(event.target.value);
+
+    submitForm = (email, password) => ev => {
+        ev.preventDefault();
+        this.props.onSubmit(email, password);
+    };
 
     render() {
         const email = this.props.email;

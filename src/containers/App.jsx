@@ -1,12 +1,13 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 
 import Header from '../components/Header';
+import Loader from "../components/Loader";
+
 import HomeContainer from './HomeContainer';
 import LoginContainer from './LoginContainer';
 import EventsContainer from './EventsContainer';
-
 
 const mapStateToProps = state => ({ ...state.auth });
 
@@ -16,16 +17,18 @@ class App extends React.Component {
       <div>
         <Header isLoggedIn={this.props.isLoggedIn} />
 
-        <main>
-          <Switch>
-            <Route exact path="/" component={HomeContainer} />
-            <Route exact path="/events" component={EventsContainer} />
-            <Route exact path="/login" component={LoginContainer} />
-          </Switch>
-        </main>
+        {this.props.inProgress ? <Loader /> :
+          <main>
+            <Switch>
+              <Route exact path="/" component={HomeContainer} />
+              <Route path="/events" component={EventsContainer} />
+              <Route path="/login" component={LoginContainer} />
+            </Switch>
+          </main>
+          }
       </div>
-    );
+      );
+    }
   }
-}
-
-export default connect(mapStateToProps)(App);
+  
+  export default withRouter(connect(mapStateToProps)(App));
