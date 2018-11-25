@@ -33,6 +33,7 @@ class EventsContainer extends React.Component {
             <div>
                 <FloatingButton onClick={this.onNewEvent} icon={"add"}/>
 
+
                 <div className="container">
                     <h2>Upcoming Events</h2>
                     <div className="row">
