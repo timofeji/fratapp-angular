@@ -2,7 +2,7 @@ import React from "react";
 
 const EventCard = (props) => {
     return (
-        <div class="card">
+        <div class="card col s4">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src={props.imgURL} />
             </div>
