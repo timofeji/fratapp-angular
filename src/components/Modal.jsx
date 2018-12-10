@@ -1,17 +1,20 @@
 import React from "react";
+import './Modal.css';
 
 const Modal = (props) => {
     return (
-        <div id="modal1" className="modal">
-            <div className="modal-content">
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
-            </div>
-            <div className="modal-footer">
-                <a href="#!" className="modal-close waves-effect waves-green btn-flat">Agree</a>
+        <div>
+            <div className="form-modal">
+                <div className="form-modal-content">
+                    <div className="form-modal-header">
+                        <span className="close" onClick={props.onClose}>&times;</span>
+                        <h2>{props.title}</h2>
+                    </div>
+                    <br></br>
+                    {props.content}
+                </div>
             </div>
         </div>
-
     )
 }
 

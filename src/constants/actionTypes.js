@@ -3,3 +3,5 @@ export const ASYNC_ACTION_END = 'ASYNC_ACTION_END';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const UPDATE_FIELD_AUTH = 'UPDATE_FIELD_AUTH';
+
+export const TOGGLE_MODAL_NEW_EVENT = 'TOGGLE_MODAL_NEW_EVENT';

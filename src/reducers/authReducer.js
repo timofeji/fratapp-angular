@@ -5,7 +5,7 @@ import {
     ASYNC_ACTION_END
 } from '../constants/actionTypes';
 
-export default (state = {}, action) => {
+export default (state = {isLoggedIn: false, inProgess: false}, action) => {
     switch (action.type) {
         case LOGIN:
             return { ...state, isLoggedIn: action.error ? false : true, inProgess: true}

@@ -32,7 +32,7 @@ class Header extends React.Component {
     render() {
         return (
             <nav>
-                <div className="nav-wrapper green darken-3">
+                <div className="nav-wrapper">
                     <a href="/" className="brand-logo">FUCK pikAPP</a>
                     {this.props.isLoggedIn ? loggedInLinks : loggedOutLinks}
                 </div>
