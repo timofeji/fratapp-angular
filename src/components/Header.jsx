@@ -31,12 +31,14 @@ export const loggedInLinks = (
 class Header extends React.Component {
     render() {
         return (
-            <nav>
-                <div className="nav-wrapper">
-                    <a href="/" className="brand-logo">FUCK pikAPP</a>
-                    {this.props.isLoggedIn ? loggedInLinks : loggedOutLinks}
-                </div>
-            </nav>
+            <div className="navbar-fixed">
+                <nav>
+                    <div className="nav-wrapper">
+                        <a href="/" className="brand-logo">FratAPP</a>
+                        {this.props.isLoggedIn ? loggedInLinks : loggedOutLinks}
+                    </div>
+                </nav>
+            </div>
         );
     }
 }
