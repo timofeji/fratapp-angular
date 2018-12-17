@@ -25,10 +25,10 @@ class EventsContainer extends React.Component {
             <div>
                 {
                     this.props.isCreatingNewEvent ?
-                        <Modal content={<NewEventContainer/>}
-                               onSubmit={this.OnSubmitForm}
-                               onClose={this.toggleNewEventModal}
-                               title="Create New Event" /> :
+                        <Modal  content={<NewEventContainer/>}
+                                onSubmit={this.OnSubmitForm}
+                                onClose={this.toggleNewEventModal}
+                                title="Create New Event" /> :
                     <FloatingButton onClick={this.toggleNewEventModal} icon={"add"} />
                 }
 

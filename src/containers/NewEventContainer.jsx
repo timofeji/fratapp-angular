@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import {
-    UPDATE_FIELD_NEW_EVENT
+    UPDATE_FIELD_NEW_EVENT,
+    CREATE_NEW_EVENT
 } from '../constants/actionTypes';
 
 import DatePicker from 'react-datepicker';
@@ -12,7 +13,9 @@ const mapStateToProps = state => ({ ...state.events });
 
 const mapDispatchToProps = dispatch => ({
     onUpdateField: (key, value) => 
-        dispatch({type: UPDATE_FIELD_NEW_EVENT, key, value})
+        dispatch({type: UPDATE_FIELD_NEW_EVENT, key, value}),
+    onSubmit: () =>
+        dispatch({type: CREATE_NEW_EVENT})
 });
 
 class NewEventContrainer extends React.Component {
@@ -23,39 +26,31 @@ class NewEventContrainer extends React.Component {
 
     onSubmitForm = ev => {
         ev.preventDefault();
-        // this.props.onSubmit();
+        this.props.onSubmit();
     };
 
     render() {
         return (
-            <form onSubmit={this.props.submit}>
+            <form onSubmit={this.onSubmitForm}>
                 <div className="row">
-                    <div className="input-field">
-                        <input id="name" className="validate"
-                            value={this.props.name}
-                            onChange={(e) => { this.props.onUpdateField('name', e) }} />
-                        <span className="helper-text">
-                            Enter the name of the event
-                        </span>
-                    </div>
+                    <label htmlFor="name">Event Name</label>
+                    <input id="name"
+                        value={this.props.name}
+                        onChange={(e) => { this.onUpdateField('name', e) }} />
+                </div>
 
+                <div className="row">
+                    <label htmlFor="description">Event description</label>
+                    <input id="description"
+                        value={this.props.description}
+                        onChange={(e) => { this.onUpdateField('description', e) }} />
+                </div>
+
+                <label htmlFor="date">Event date</label>
+                <div className="row">
                     <DatePicker id="date" className="datepicker"
-                        selected={Date.now}
-                        onSelect={(date) => { this.props.onUpdateDate(date) }} />
-
-                    <label htmlFor="date">Enter the Event description</label>
-                </div>
-
-                <div className="row">
-                    <div>
-                        <input id="description"
-                            value={this.props.description}
-                            onChange={(e) => { this.props.onUpdateField('description', e) }} />
-                        <label htmlFor="description">Enter the Event description</label>
-                    </div>
-                </div>
-
-                <div className="row">
+                        selected={this.props.date}
+                        onSelect={(date) => { this.onUpdateDate(date) }} />
                 </div>
 
                 <div className="row right-align">
@@ -63,7 +58,6 @@ class NewEventContrainer extends React.Component {
                         Next
                     <i className="material-icons right">chevron_right</i>
                     </button>
-
                 </div>
             </form>
         )

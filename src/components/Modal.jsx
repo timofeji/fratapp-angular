@@ -5,7 +5,7 @@ const Modal = (props) => {
     return (
         <div>
             <div className="form-modal">
-                <div className="form-modal-content">
+                <div className="form-modal-content z-depth-3">
                     <div className="form-modal-header">
                         <span className="close" onClick={props.onClose}>&times;</span>
                         <h2>{props.title}</h2>
