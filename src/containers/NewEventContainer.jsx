@@ -24,6 +24,7 @@ class NewEventContrainer extends React.Component {
 
     onUpdateDate = (date) => this.props.onUpdateField('date', date);
 
+
     onSubmitForm = ev => {
         ev.preventDefault();
         this.props.onSubmit();
