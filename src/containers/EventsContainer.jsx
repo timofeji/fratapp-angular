@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     toggleNewEventModal: () =>
         dispatch({ type: TOGGLE_MODAL_NEW_EVENT }),
 });
-
+// 
 class EventsContainer extends React.Component {
 
     toggleNewEventModal = (event) => this.props.toggleNewEventModal();
